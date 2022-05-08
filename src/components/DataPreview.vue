@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <PrimeVueDialog position="bottom" v-model:visible="hasData" :draggable="false" :maximizable="true" header="Results" style="height: 50vh; width: 100vw">
             <PrimeVueDataTable :value="response['data']['results']['bindings']" stripedRows class="p-datatable-sm">
                 <PrimeVueColumn v-for="col of response['data']['head']['vars']" :field="col" :header="col" :key="col" frozen>
@@ -10,9 +9,6 @@
                 </PrimeVueColumn>
             </PrimeVueDataTable>
         </PrimeVueDialog>
-        <!-- <PrimeVueScrollPanel style="width: 100%; height: 500px">
-            <pre> {{ response.data.results }} </pre>
-        </PrimeVueScrollPanel> -->
     </div>
 </template>
 
@@ -23,9 +19,7 @@ export default {
             hasData: false,
             response: {
                 data: {
-                    results: {
-                        
-                    }
+                    results: {}
                 }
             },
         }
@@ -34,10 +28,10 @@ export default {
         
     },
     methods: {
+        /**
+         * Posiela dotaz na Sparql endpoint
+         */
         sendQuery(endpoint, query) {
-            //select distinct ?Concept where {[] a ?Concept} LIMIT 100
-            //SELECT DISTINCT * WHERE {  ?s ?p ?o}LIMIT 100
-            console.log("START")
             this.axios.get(endpoint, { 
                 params: { 
                     'query': query,
@@ -48,9 +42,6 @@ export default {
             }).then((response) =>{
                 this.response = response
                 this.hasData = true
-                console.log(response)
-                // const result = response.data.results.bindings;
-                // console.log(result)
             })
         }
     },

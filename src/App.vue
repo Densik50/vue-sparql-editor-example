@@ -26,8 +26,6 @@ export default {
   min-height: 100vh;
   max-height: 100vh;
   overflow:hidden;
-  /* text-align: center;
-  color: #2c3e50; */
 }
 
 .CodeMirror {

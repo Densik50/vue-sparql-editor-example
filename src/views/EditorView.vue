@@ -11,9 +11,7 @@
 				<PrimeVueButton @click="sendQuery()">RUN</PrimeVueButton>
 			</template>
 		</PrimeVueToolbar>
-
 		<SparqlEditor ref="editor" style="height: 100%"/>
-
 		<DataPreview ref="dataPreview"/>
 	</div>
 </template>
@@ -22,18 +20,13 @@
 export default {
 	data() {
 		return {
-			show_querry_panel: true,
 			endpoint: "https://dbpedia.org/sparql",
 		}
 	},
 	name: 'EditorView',
 	methods: {
-		update_query_var: function(e){
-			this.show_querry_panel = e;
-		},
 		sendQuery(){
 			const query = this.$refs.editor.getCode();
-			console.log(query)
 			this.$refs.dataPreview.sendQuery(this.endpoint, query)
 		},
 	}

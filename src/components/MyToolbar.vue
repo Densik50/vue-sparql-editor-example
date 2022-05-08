@@ -2,12 +2,7 @@
 
 <template>
         <div class="my_toolbar">
-            <PrimeVueMenubar :model="items">
-            </PrimeVueMenubar>
-            <!-- <PrimeVueButton id="settings_button" icon="pi pi-cog" @click="visibleRight = true" class="p-mr-2"  />
-            <PrimeVueSidebar v-model:visible="visibleRight" :baseZIndex="1000" position="right">
-            <h3>Right Sidebar</h3>
-            </PrimeVueSidebar> -->
+            <PrimeVueMenubar :model="items"></PrimeVueMenubar>
         </div>
 </template>
 
